@@ -1,8 +1,6 @@
 package com.tms.transport_management_system.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Index;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,12 +18,21 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Transporter {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID transporterId;
 
+    @Column(nullable = false)
     private String companyName;
 
+    @Column(nullable = false)
     private Double rating = 3.0;
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(
+            name = "transporter_truck",
+            joinColumns = @JoinColumn(name = "transporter_id")
+    )
     private List<TruckCapacity> availableTrucks = new ArrayList<>();
 
 }
