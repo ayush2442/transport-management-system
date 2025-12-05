@@ -1,5 +1,6 @@
 package com.tms.transport_management_system.entity;
 
+import com.tms.transport_management_system.enums.BidStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,7 +15,14 @@ import java.util.UUID;
         @Index(name = "idx_bid_load", columnList = "loadId"),
         @Index(name = "idx_bid_transporter", columnList = "transporterId"),
         @Index(name = "idx_bid_status", columnList = "status")
-})
+        },
+        uniqueConstraints = {
+            @UniqueConstraint(
+                    name = "uk_one_accepted_bid_per_load",
+                    columnNames = {"loadId", "status"}
+            )
+        }
+)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -26,6 +34,9 @@ public class Bid {
 
     @Column(nullable = false)
     private UUID loadId;
+
+    @Column(nullable = false)
+    private UUID transporterId;
 
     @Column(nullable = false)
     private Double proposedRate;
