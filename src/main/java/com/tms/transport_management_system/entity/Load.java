@@ -1,6 +1,7 @@
 package com.tms.transport_management_system.entity;
 
 import com.tms.transport_management_system.enums.LoadStatus;
+import com.tms.transport_management_system.enums.WeightUnit;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
