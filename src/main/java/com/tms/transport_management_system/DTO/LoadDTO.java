@@ -1,6 +1,7 @@
 package com.tms.transport_management_system.DTO;
 
 import com.tms.transport_management_system.enums.LoadStatus;
+import com.tms.transport_management_system.enums.WeightUnit;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
