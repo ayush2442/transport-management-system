@@ -115,7 +115,7 @@ public class BookingService {
         transporterRepository.save(transporter);
 
         booking.setStatus(BookingStatus.CANCELLED);
-        booking = bookingRepository.save(transporter);
+        booking = bookingRepository.save(booking);
 
         if (load.getStatus() == LoadStatus.BOOKED) {
             Integer confirmedTrucks = bookingRepository.getTotalAllocatedTrucks(load.getLoadId(), BookingStatus.CONFIRMED);
