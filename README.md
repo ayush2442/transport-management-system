@@ -36,6 +36,11 @@ mvn spring-boot:run
 
 Application runs at: http://localhost:8080
 
+## Database Schema
+
+![ER Diagram](https://github.com/ayush2442/transport-management-system/blob/main/tms_erdiagram.drawio_page-0001.jpg)
+
+
 ## Key Features
 
 1. Load management with status and lifecycle tracking
