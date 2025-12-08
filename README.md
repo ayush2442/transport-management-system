@@ -176,3 +176,12 @@ GET /booking/{bookingId}
 ```bash
 PATCH /booking/{bookingId}/cancel
 ```
+
+## Test Coverage
+
+Run tests with coverage:
+
+```bash
+mvn clean test jacoco:report
+open target/site/jacoco/index.html
+```
